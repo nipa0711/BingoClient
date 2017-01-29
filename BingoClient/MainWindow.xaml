@@ -5,8 +5,55 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BingoClient"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        Title="Bingo" Height="388.312" Width="550.364" Closing="Window_Closing" >
     <Grid>
-        
+        <!-- Button.Click="button_Click" = 한번에는 이상하게 안되네 -->
+        <StackPanel Orientation="Vertical" Margin="10,39,287,113" >
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btn1" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn2" Content=""  Width="46" Height="39" Click="button_Click" />
+                <Button x:Name="btn3" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn4" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn5" Content=""  Width="46" Height="39" Click="button_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btn6" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn7" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn8" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn9" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn10" Content=""  Width="46" Height="39" Click="button_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btn11" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn12" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn13" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn14" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn15" Content=""  Width="46" Height="39" Click="button_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" >
+                <Button x:Name="btn16" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn17" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn18" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn19" Content=""  Width="46" Height="39" Click="button_Click" />
+                <Button x:Name="btn20" Content=""  Width="46" Height="39" Click="button_Click"/>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal">
+                <Button x:Name="btn21" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn22" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn23" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn24" Content=""  Width="46" Height="39" Click="button_Click"/>
+                <Button x:Name="btn25" Content=""  Width="46" Height="39" Click="button_Click"/>
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="btnRezero" Content="초기화" HorizontalAlignment="Left" Margin="11,249,0,0" VerticalAlignment="Top" Width="103" Height="39" Click="btnRezero_Click"/>
+        <Button x:Name="btnRandom" Content="랜덤생성" HorizontalAlignment="Left" Margin="119,249,0,0" VerticalAlignment="Top" Width="100" Height="39" Click="btnRandom_Click"/>
+        <Button x:Name="btnStart" Content="준비완료" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="230" Height="40" Click="btnStart_Click" />
+        <Label x:Name="label" Content="내 빙고판" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="chatBox" HorizontalAlignment="Left" Height="253" Margin="255,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
+        <Label x:Name="label1" Content="Chat" HorizontalAlignment="Left" Margin="255,13,0,0" VerticalAlignment="Top"/>
+        <TextBox x:Name="msgBox" HorizontalAlignment="Left" Height="36" Margin="255,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <Button x:Name="btnSend" Content="전송" HorizontalAlignment="Left" Margin="449,297,0,0" VerticalAlignment="Top" Width="71" Height="36" Click="btnSend_Click"/>
+
     </Grid>
 </Window>
