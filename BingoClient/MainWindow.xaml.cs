@@ -106,8 +106,9 @@ namespace BingoClient
         private void btnRandom_Click(object sender, RoutedEventArgs e)
         {
             Random rand = new Random((int)DateTime.Now.Ticks);
-            int[] list = Enumerable.Range(1, 25).OrderBy(o => rand.Next()).ToArray();
+            int[] list = Enumerable.Range(1, 25).OrderBy(o => rand.Next()).ToArray(); // 리스트에 1부터 25까지의 숫자를 넣는다.
 
+            // 리스트에 넣은 숫자를 각 버튼에 할당
             btn1.Content = list[0];
             btn2.Content = list[1];
             btn3.Content = list[2];
@@ -166,7 +167,7 @@ namespace BingoClient
                             msg += bingo[i, j].ToString() + ",";
                         }
                     }
-                    sendMsg("#ready#|" + msg);
+                    sendMsg("#ready#|" + msg); // 준비완료 전송
 
                     btnRezero.IsEnabled = false;
                     btnRandom.IsEnabled = false;
@@ -177,7 +178,7 @@ namespace BingoClient
 
         public void sendKey(string str)
         {
-            sendMsg("#0rder#|" + str);
+            sendMsg("#0rder#|" + str); // 빙고판 번호를 보낸다
         }
 
         public void sendMsg(string str)
@@ -188,6 +189,7 @@ namespace BingoClient
 
         private int bingoCheck()
         {
+            // 빙고판 상태 확인
             if (btn1.Content.ToString() == "")
             {
                 UpdateChatBox("빙고판이 준비되지 않았습니다.");
@@ -374,8 +376,7 @@ namespace BingoClient
             try
             {
                 string msg = msgBox.Text;
-                SW.WriteLine("#MSG#|" + userID + "님 : " + msg); // 메시지 보내기
-                SW.Flush();
+                sendMsg("#MSG#|" + userID + "님 : " + msg); // 메시지 보내기
                 msgBox.Text = "";
             }
             catch (Exception A)
@@ -403,7 +404,6 @@ namespace BingoClient
                         gameMode = "other-turn";
                     }
                     break;
-
             }
 
             //FrameworkElement feSource = e.Source as FrameworkElement;
@@ -600,6 +600,7 @@ namespace BingoClient
                 {
                     ReceivedMsg = SR.ReadLine();
 
+                    // 종종 서버에서 전달해올때 비정상적인 문자가 메세지 앞에 들어오는 현상이 있는데, 그걸 해결한다.
                     byte[] ascii = Encoding.ASCII.GetBytes(ReceivedMsg);
                     int count = 0;
                     foreach (byte b in ascii)
@@ -614,20 +615,20 @@ namespace BingoClient
 
                     string[] MsgResult = ReceivedMsg.Split('|');
 
-                    if (MsgResult[0] == "#MSG#")
+                    if (MsgResult[0] == "#MSG#") // 채팅 메세지라면
                     {
                         UpdateChatBox(MsgResult[1]);
                     }
-                    else if (MsgResult[0] == "#0rder#")
+                    else if (MsgResult[0] == "#0rder#") // 빙고 숫자라면
                     {
                         int order = Convert.ToInt32(MsgResult[1]);
                         pushBingo(order);
                     }
-                    else if (MsgResult[0] == "#Attack#")
+                    else if (MsgResult[0] == "#Attack#") // 내 턴이라면
                     {
                         gameMode = "my-turn";
                     }
-                    else if (MsgResult[0] == "#GAME-0VER#")
+                    else if (MsgResult[0] == "#GAME-0VER#") // 게임 종료라면
                     {
                         gameMode = "game-over";
                         btnStart.Dispatcher.BeginInvoke(((Action)(() => { btnStart.Content = "다시 시작하기"; btnStart.IsEnabled = true; })));
@@ -682,6 +683,23 @@ namespace BingoClient
             catch (Exception A)
             {
                 UpdateChatBox("ERR2 : " + A.Message);
+            }
+        }
+
+        private void msgBox_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
+        {
+            if(e.Key==System.Windows.Input.Key.Return)
+            {
+                try
+                {
+                    string msg = msgBox.Text;
+                    sendMsg("#MSG#|" + userID + "님 : " + msg); // 메시지 보내기
+                    msgBox.Text = "";
+                }
+                catch (Exception A)
+                {
+                    UpdateChatBox("ERR : " + A.Message);
+                }
             }
         }
     }

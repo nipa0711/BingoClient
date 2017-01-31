@@ -56,15 +56,15 @@ namespace BingoClient
                     string GetMessage = string.Empty;
                     GetMessage = SR.ReadLine();
 
-                    if (GetMessage == "permission-denied")
+                    if (GetMessage == "permission-denied") // 접속 거절시
                     {
                         MessageBoxResult result = MessageBox.Show("ID가 중복되었습니다.");
                     }
-                    else if (GetMessage == "#Full#")
+                    else if (GetMessage == "#Full#") // 방이 가득찼다면
                     {
                         MessageBoxResult result = MessageBox.Show("방이 가득찼습니다.");
                     }
-                    else
+                    else if(GetMessage == "permission-granted") // 접속 승인시
                     {
                         MainWindow dialog = new MainWindow(userId, IP, PORT);
                         this.Close();

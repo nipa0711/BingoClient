@@ -50,9 +50,9 @@
         <Button x:Name="btnRandom" Content="랜덤생성" HorizontalAlignment="Left" Margin="119,249,0,0" VerticalAlignment="Top" Width="100" Height="39" Click="btnRandom_Click"/>
         <Button x:Name="btnStart" Content="준비완료" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="230" Height="40" Click="btnStart_Click" />
         <Label x:Name="label" Content="내 빙고판" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="chatBox" HorizontalAlignment="Left" Height="253" Margin="255,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265"/>
+        <TextBox x:Name="chatBox" HorizontalAlignment="Left" Height="253" Margin="255,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" FontSize="18"/>
         <Label x:Name="label1" Content="Chat" HorizontalAlignment="Left" Margin="255,13,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="msgBox" HorizontalAlignment="Left" Height="36" Margin="255,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189"/>
+        <TextBox x:Name="msgBox" HorizontalAlignment="Left" Height="36" Margin="255,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" KeyDown="msgBox_KeyDown" AcceptsReturn="False" MaxLines="1" FontSize="18" />
         <Button x:Name="btnSend" Content="전송" HorizontalAlignment="Left" Margin="449,297,0,0" VerticalAlignment="Top" Width="71" Height="36" Click="btnSend_Click"/>
 
     </Grid>
