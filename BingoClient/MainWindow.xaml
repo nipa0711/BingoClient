@@ -5,55 +5,86 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BingoClient"
         mc:Ignorable="d"
-        Title="Bingo" Height="388.312" Width="550.364" Closing="Window_Closing" >
+        Title="Bingo" Height="400" Width="600" Closing="Window_Closing" >
     <Grid>
-        <!-- Button.Click="button_Click" = 한번에는 이상하게 안되네 -->
-        <StackPanel Orientation="Vertical" Margin="10,39,287,113" >
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="btn1" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn2" Content=""  Width="46" Height="39" Click="button_Click" />
-                <Button x:Name="btn3" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn4" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn5" Content=""  Width="46" Height="39" Click="button_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Button x:Name="btn6" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn7" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn8" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn9" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn10" Content=""  Width="46" Height="39" Click="button_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="btn11" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn12" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn13" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn14" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn15" Content=""  Width="46" Height="39" Click="button_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal" >
-                <Button x:Name="btn16" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn17" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn18" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn19" Content=""  Width="46" Height="39" Click="button_Click" />
-                <Button x:Name="btn20" Content=""  Width="46" Height="39" Click="button_Click"/>
-            </StackPanel>
-            <StackPanel Orientation="Horizontal">
-                <Button x:Name="btn21" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn22" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn23" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn24" Content=""  Width="46" Height="39" Click="button_Click"/>
-                <Button x:Name="btn25" Content=""  Width="46" Height="39" Click="button_Click"/>
-            </StackPanel>
-        </StackPanel>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="25*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="10*" />
+            <RowDefinition Height="40*" />
+            <RowDefinition Height="10*" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="40*" />
+            <ColumnDefinition Width="10*" />
+            <ColumnDefinition Width="175*" />
+            <ColumnDefinition Width="5*" />
+            <ColumnDefinition Width="80*" />
+            <ColumnDefinition Width="10*" />
+        </Grid.ColumnDefinitions>
 
-        <Button x:Name="btnRezero" Content="초기화" HorizontalAlignment="Left" Margin="11,249,0,0" VerticalAlignment="Top" Width="103" Height="39" Click="btnRezero_Click"/>
-        <Button x:Name="btnRandom" Content="랜덤생성" HorizontalAlignment="Left" Margin="119,249,0,0" VerticalAlignment="Top" Width="100" Height="39" Click="btnRandom_Click"/>
-        <Button x:Name="btnStart" Content="준비완료" HorizontalAlignment="Left" Margin="10,293,0,0" VerticalAlignment="Top" Width="230" Height="40" Click="btnStart_Click" />
-        <Label x:Name="label" Content="내 빙고판" HorizontalAlignment="Left" Margin="10,13,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="chatBox" HorizontalAlignment="Left" Height="253" Margin="255,39,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="265" FontSize="18"/>
-        <Label x:Name="label1" Content="Chat" HorizontalAlignment="Left" Margin="255,13,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="msgBox" HorizontalAlignment="Left" Height="36" Margin="255,297,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="189" KeyDown="msgBox_KeyDown" AcceptsReturn="False" MaxLines="1" FontSize="18" />
-        <Button x:Name="btnSend" Content="전송" HorizontalAlignment="Left" Margin="449,297,0,0" VerticalAlignment="Top" Width="71" Height="36" Click="btnSend_Click"/>
+        <Viewbox Grid.Column="1" Grid.Row="1" Grid.ColumnSpan="5" HorizontalAlignment="Left" >
+            <TextBlock>내 빙고판</TextBlock>
+        </Viewbox>
 
+        <Button x:Name="btn1" Grid.Column="1" Grid.Row="2" Content=""   Click="button_Click"/>
+        <Button x:Name="btn2" Grid.Column="2" Grid.Row="2" Content=""   Click="button_Click" />
+        <Button x:Name="btn3" Grid.Column="3" Grid.Row="2" Content=""  Click="button_Click"/>
+        <Button x:Name="btn4" Grid.Column="4" Grid.Row="2" Content=""   Click="button_Click"/>
+        <Button x:Name="btn5" Grid.Column="5" Grid.Row="2" Content=""   Click="button_Click"/>
+        <Button x:Name="btn6" Grid.Column="1" Grid.Row="3" Content=""  Click="button_Click"/>
+        <Button x:Name="btn7" Grid.Column="2" Grid.Row="3" Content=""   Click="button_Click"/>
+        <Button x:Name="btn8" Grid.Column="3" Grid.Row="3"  Content=""   Click="button_Click"/>
+        <Button x:Name="btn9" Grid.Column="4" Grid.Row="3"  Content=""   Click="button_Click"/>
+        <Button x:Name="btn10" Grid.Column="5" Grid.Row="3"  Content=""  Click="button_Click"/>
+        <Button x:Name="btn11" Grid.Column="1" Grid.Row="4"  Content=""   Click="button_Click"/>
+        <Button x:Name="btn12" Grid.Column="2" Grid.Row="4" Content=""  Click="button_Click"/>
+        <Button x:Name="btn13" Grid.Column="3" Grid.Row="4" Content="" Click="button_Click"/>
+        <Button x:Name="btn14" Grid.Column="4" Grid.Row="4" Content=""   Click="button_Click"/>
+        <Button x:Name="btn15" Grid.Column="5" Grid.Row="4" Content=""  Click="button_Click"/>
+        <Button x:Name="btn16" Grid.Column="1" Grid.Row="5" Content=""   Click="button_Click"/>
+        <Button x:Name="btn17" Grid.Column="2" Grid.Row="5" Content=""   Click="button_Click"/>
+        <Button x:Name="btn18" Grid.Column="3" Grid.Row="5" Content=""   Click="button_Click"/>
+        <Button x:Name="btn19" Grid.Column="4" Grid.Row="5" Content=""   Click="button_Click" />
+        <Button x:Name="btn20" Grid.Column="5" Grid.Row="5" Content=""   Click="button_Click"/>
+        <Button x:Name="btn21" Grid.Column="1" Grid.Row="6" Content=""   Click="button_Click"/>
+        <Button x:Name="btn22" Grid.Column="2" Grid.Row="6"  Content=""  Click="button_Click"/>
+        <Button x:Name="btn23" Grid.Column="3" Grid.Row="6"  Content=""   Click="button_Click"/>
+        <Button x:Name="btn24" Grid.Column="4" Grid.Row="6"  Content=""   Click="button_Click"/>
+        <Button x:Name="btn25" Grid.Column="5" Grid.Row="6"  Content=""  Click="button_Click"/>
+
+        <Button x:Name="btnRezero" Grid.Column="1" Grid.Row="8" Grid.ColumnSpan="2" Content="초기화" Click="btnRezero_Click">
+        </Button>
+        <Button x:Name="btnRandom" Grid.Column="4" Grid.Row="8" Grid.ColumnSpan="2" Content="랜덤생성" Click="btnRandom_Click">
+        </Button>
+        <Button x:Name="btnStart" Grid.Column="1" Grid.Row="10" Grid.ColumnSpan="5" Content="준비완료"   Click="btnStart_Click" >
+        </Button>
+
+        <Viewbox Grid.Column="7" Grid.Row="1" Grid.ColumnSpan="3" HorizontalAlignment="Left" >
+            <TextBlock>Chat</TextBlock>
+        </Viewbox>
+        <TextBox x:Name="chatBox" Grid.Column="7" Grid.Row="2" Grid.ColumnSpan="3" Grid.RowSpan="7"  TextWrapping="Wrap" FontSize="18"/>
+        <TextBox x:Name="msgBox" Grid.Column="7" Grid.Row="10"  TextWrapping="Wrap"   KeyDown="msgBox_KeyDown" AcceptsReturn="False" MaxLines="1" FontSize="18" />
+        <Button x:Name="btnSend" Grid.Column="9" Grid.Row="10"  Content="전송" Click="btnSend_Click">
+            <Button.ContentTemplate>
+                <DataTemplate>
+                    <Viewbox>
+                        <TextBlock>전송</TextBlock>
+                    </Viewbox>
+                </DataTemplate>
+            </Button.ContentTemplate>
+        </Button>
     </Grid>
 </Window>

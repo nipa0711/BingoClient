@@ -352,18 +352,22 @@ namespace BingoClient
 
         public void UpdateChatBox(string data)
         {
-            // 해당 쓰레드가 UI쓰레드인가?
-            if (chatBox.Dispatcher.CheckAccess())
+            try
             {
-                //UI 쓰레드인 경우
-                chatBox.AppendText(data + Environment.NewLine);
-                chatBox.ScrollToLine(chatBox.LineCount - 1); // 로그창 스크롤 아래로
-            }
-            else
-            {
-                // 작업쓰레드인 경우
-                chatBox.Dispatcher.BeginInvoke((Action)(() => { chatBox.AppendText(data + Environment.NewLine); chatBox.ScrollToLine(chatBox.LineCount - 1); }));
-            }
+                // 해당 쓰레드가 UI쓰레드인가?
+                if (chatBox.Dispatcher.CheckAccess())
+                {
+                    //UI 쓰레드인 경우
+                    chatBox.AppendText(data + Environment.NewLine);
+                    chatBox.ScrollToLine(chatBox.LineCount - 1); // 로그창 스크롤 아래로
+                }
+                else
+                {
+                    // 작업쓰레드인 경우
+                    chatBox.Dispatcher.BeginInvoke((Action)(() => { chatBox.AppendText(data + Environment.NewLine); chatBox.ScrollToLine(chatBox.LineCount - 1); }));
+                }
+            }catch(Exception e)
+            { }            
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

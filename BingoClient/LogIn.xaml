@@ -5,15 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BingoClient"
         mc:Ignorable="d"
-        Title="LogIn" Height="118.157" Width="271.508">
+        Title="LogIn" Height="150" Width="300">
     <Grid>
-        <Label x:Name="label2" Content="ID" HorizontalAlignment="Left" Margin="11,38,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.061,0.582"/>
-        <TextBox x:Name="idBox" HorizontalAlignment="Left" Height="23" Margin="38,42,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" ToolTip="ID입력"/>
-        <Button x:Name="btnConnect" Content="접속" HorizontalAlignment="Left" Margin="163,42,0,0" VerticalAlignment="Top" Width="79" Height="22" Click="btnConnect_Click"/>
-        <Label x:Name="label" Content="IP" HorizontalAlignment="Left" Margin="12,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.2,-0.303"/>
-        <TextBox x:Name="ipBox" HorizontalAlignment="Left" Height="23" Margin="39,14,0,0" TextWrapping="Wrap" Text="localhost" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="label1" Content="Port" HorizontalAlignment="Left" Margin="163,10,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="portBox" HorizontalAlignment="Left" Height="23" Margin="200,14,0,0" TextWrapping="Wrap" Text="44444" VerticalAlignment="Top" Width="43"/>
-
+        <StackPanel Orientation="Vertical" Margin="10">
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text=" IP " FontFamily="D2Coding" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                <TextBox x:Name="ipBox"  Height="23" TextWrapping="Wrap" Text="52.231.200.249" VerticalAlignment="Center" Width="120" FontFamily="D2Coding" FontSize="15"/>
+                <TextBlock Text=" Port " FontFamily="D2Coding" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                <TextBox x:Name="portBox" HorizontalAlignment="Left" Height="20"  TextWrapping="Wrap" Text="44444" VerticalAlignment="Top" Width="43" FontFamily="D2Coding" FontSize="15"/>
+            </StackPanel>
+            <StackPanel>
+                <TextBlock></TextBlock>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
+                <TextBlock Text=" ID " FontFamily="D2Coding" VerticalAlignment="Center" FontSize="20"></TextBlock>
+                <TextBox x:Name="idBox" Height="23" TextWrapping="Wrap"  Width="144" ToolTip="ID입력" FontSize="15"/>
+                <Button x:Name="btnConnect" Content="접속" Width="79" Height="23"  Click="btnConnect_Click"/>
+            </StackPanel>
+        </StackPanel>
     </Grid>
 </Window>
